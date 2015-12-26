@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view1</title>
+</head>
+<body>
+<table >
+	  <tr >
+	    <td>id</td>
+		<td>answer1</td>
+		<td>answer2</td>
+		<td>answer3</td>
+		<td>answer4</td>
+		<td>answer5</td>
+		<td>answer6</td>
+		<td>answer7</td>
+		<td>answer8</td>
+		<td>answer9</td>
+		<td>answer10</td>
+	  </tr>
+		{% for d in vote_descriptions %}
+	  	<tr >
+			<td>{{ d.id }}</td>
+			<td>{{ d.answer1 }}</td>
+			<td>{{ d.answer2 }}</td>
+			<td>{{ d.answer3 }}</td>
+			<td>{{ d.answer4 }}</td>
+			<td>{{ d.answer5 }}</td>
+			<td>{{ d.answer6 }}</td>
+			<td>{{ d.answer7 }}</td>
+			<td>{{ d.answer8 }}</td>
+			<td>{{ d.answer9 }}</td>
+			<td>{{ d.answer10 }}</td>
+		</tr>
+		 {% endfor %}
+	</table>
+</body>
+</html>
