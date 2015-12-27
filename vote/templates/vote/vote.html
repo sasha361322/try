@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Голосуй Прост))0))</title>
+</head>
+<body>
+<h4> {{ vote.date }}</h4>
+<h2> {{ vote.theme }}</h2>
+<hr>
+<p>Варианты ответа:</p>
+<table border="1">
+
+            {% for d in vote_description %}<tr>
+            <td>
+                {{ d.answer }}
+            </td>
+    </tr>
+            {% endfor %}
+</table>
+</body>
+</html>
