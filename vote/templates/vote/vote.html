@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Голосуй Прост))0))</title>
-</head>
-<body>
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block vote %}
 <h4> {{ vote.date }}</h4>
 <h2> {{ vote.theme }}</h2>
 <hr>
+    <div class="large-offset-1 large-8 columns"
 <p>Варианты ответа:</p>
 <table border="1">
 
@@ -18,5 +16,5 @@
     </tr>
             {% endfor %}
 </table>
-</body>
-</html>
+    </div>
+{% endblock %}
