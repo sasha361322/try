@@ -1,5 +1,5 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
 
 
@@ -125,9 +125,9 @@ class User(models.Model):
 
 
 class Vote(models.Model):
-    theme = models.CharField(max_length=100)
+    theme = models.CharField(verbose_name="Тема", max_length=100)
     date = models.DateTimeField()
-    count = models.IntegerField()
+    count = models.IntegerField(verbose_name="Количесво вариантов ответа")
     is_single = models.IntegerField()
 
     class Meta:

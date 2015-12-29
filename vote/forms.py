@@ -1,6 +1,12 @@
 from django.forms import *
-from .models import *
+from .models import Vote, VoteDescription
+
+class VoteForm(ModelForm):
+    class Meta:
+        model = Vote
+        fields = ['theme', 'count']
 
 class AnswerForm(ModelForm):
-    class Mets:
+    class Meta:
         model = VoteDescription
+        fields = ['answer']

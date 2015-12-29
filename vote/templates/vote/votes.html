@@ -23,5 +23,10 @@
     </tr>
     {% endfor %}
 </table>
+    <form action="/vote/addvote/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="button" value="Добавить голосование">
+    </form>
     </div>
 {% endblock %}
