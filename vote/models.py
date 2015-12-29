@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
+
 from django.db import models
+
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=80)
@@ -67,16 +69,6 @@ class AuthUserUserPermissions(models.Model):
         unique_together = (('user', 'permission'),)
 
 
-class Choice(models.Model):
-    id = models.IntegerField(primary_key=True)
-    id_c = models.IntegerField()
-    nomer = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'choice'
-
-
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
@@ -122,7 +114,6 @@ class DjangoSession(models.Model):
 
 
 class User(models.Model):
-    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=20)
     surname = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
@@ -134,12 +125,10 @@ class User(models.Model):
 
 
 class Vote(models.Model):
-    id = models.IntegerField(primary_key=True)
     theme = models.CharField(max_length=100)
     date = models.DateTimeField()
     count = models.IntegerField()
     is_single = models.IntegerField()
-    id_description = models.IntegerField()
 
     class Meta:
         managed = False
@@ -147,9 +136,10 @@ class Vote(models.Model):
 
 
 class VoteDescription(models.Model):
-    id = models.IntegerField(primary_key=True)
     answer = models.CharField(max_length=100)
-    id_desc = models.ForeignKey(Vote, models.DO_NOTHING, db_column='id_desc')
+    count = models.IntegerField()
+    number = models.IntegerField()
+    id_vote = models.ForeignKey(Vote, models.DO_NOTHING, db_column='id_vote')
 
     class Meta:
         managed = False
@@ -157,11 +147,9 @@ class VoteDescription(models.Model):
 
 
 class VoteInformation(models.Model):
-    id = models.IntegerField(primary_key=True)
     id_user = models.ForeignKey(User, models.DO_NOTHING, db_column='id_user', blank=True, null=True)
     id_vote = models.IntegerField()
     date = models.DateTimeField()
-    id_choice = models.ForeignKey(Choice, models.DO_NOTHING, db_column='id_choice')
     ip = models.CharField(max_length=15)
 
     class Meta:

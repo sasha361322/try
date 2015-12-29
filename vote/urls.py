@@ -5,6 +5,7 @@ from . import views
 
 
 urlpatterns = [
-      url(r'^$', views.votes, name='votes.html'),
-      url(r'^vote/get/(?P<vote_id>\d+)$', views.vote, name='vote.html'),
+      url(r'^$', 'vote.views.votes'),
+      url(r'^vote/get/(?P<vote_id>\d+)$', 'vote.views.vote'),
+      url(r'^vote/addanswer/(?P<vote_id>\d+)/(\d%)$', 'vote.views.addanswer'),
     ]
